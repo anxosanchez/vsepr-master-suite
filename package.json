@@ -1,6 +1,7 @@
 {
   "name": "vsepr-master-suite",
   "private": true,
+  "homepage": "https://anxosanchez.github.io/vsepr-master-suite/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
