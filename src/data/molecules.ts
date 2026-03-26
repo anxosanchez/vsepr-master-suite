@@ -1,16 +1,30 @@
 import { VseprExample, StericGroup } from "../types/vsepr";
 
-// Colors
-const COLOR_CENTRAL = "#Eab308"; // Yellow-500
-const COLOR_ATOM = "#94a3b8"; // Slate-400
-
+// CPK standard colors mapping for elements used
+const CPK_COLORS: Record<string, string> = {
+    H: "#FFFFFF",
+    C: "#909090",
+    N: "#3050F8",
+    O: "#FF0D0D",
+    F: "#90E050",
+    Cl: "#1FF01F",
+    Br: "#A62929",
+    S: "#FFFF30",
+    P: "#FF8000",
+    B: "#FFA5A5",
+    Be: "#C2FF00",
+    Xe: "#429EB0",
+    DEFAULT: "#FF45C0"
+};
 
 // Helper to create basic atom
 const createAtom = (symbol: string, pos: [number, number, number], central = false) => ({
     symbol,
     position: pos as [number, number, number],
-    color: central ? COLOR_CENTRAL : COLOR_ATOM,
-    radius: central ? 0.8 : 0.5,
+    // Extract base element (remove trailing numbers/charges if any exist later)
+    color: CPK_COLORS[symbol] || CPK_COLORS.DEFAULT,
+    // Add slightly more difference to sizes for visual hierarchy
+    radius: central ? 0.75 : 0.45,
 });
 
 // Helper for bonds

@@ -19,9 +19,11 @@ export const MoleculeScene: React.FC<MoleculeSceneProps> = ({ molecule, showLone
                 dpr={[1, 2]} // Support high DPI
             >
                 <Suspense fallback={null}>
-                    <Environment preset="city" />
+                    <Environment preset="studio" />
                     <ambientLight intensity={0.5} />
                     <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} shadow-bias={-0.0001} />
+                    {/* Rim/Backlight purplish for cinematic feel */}
+                    <pointLight position={[-10, -10, -10]} intensity={1.5} color="#8a2be2" />
 
                     <MoleculeRenderer
                         data={molecule}
@@ -30,7 +32,14 @@ export const MoleculeScene: React.FC<MoleculeSceneProps> = ({ molecule, showLone
                     />
 
                     <ContactShadows resolution={1024} scale={20} blur={2} opacity={0.25} far={10} color="#000000" />
-                    <OrbitControls makeDefault />
+                    <OrbitControls
+                        makeDefault
+                        enablePan={false}
+                        minDistance={4}
+                        maxDistance={12}
+                        minPolarAngle={Math.PI / 4} // ~45 degrees
+                        maxPolarAngle={Math.PI - Math.PI / 4} // ~135 degrees
+                    />
                 </Suspense>
             </Canvas>
 

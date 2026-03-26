@@ -38,7 +38,13 @@ export const Bond: React.FC<BondProps> = ({ data }) => {
         // @ts-ignore - castShadow/receiveShadow are valid in R3F but TS is complaining
         <mesh position={position} rotation={rotation} castShadow={true} receiveShadow={true}>
             <cylinderGeometry args={[0.15, 0.15, height, 16]} />
-            <meshStandardMaterial color="#cbd5e1" metalness={0.3} roughness={0.4} />
+            <meshPhysicalMaterial 
+                color="#cbd5e1" 
+                metalness={0.2} 
+                roughness={0.3} 
+                clearcoat={0.5} 
+                clearcoatRoughness={0.2} 
+            />
         </mesh>
     );
 };

@@ -7,7 +7,7 @@ interface InfoPanelProps {
 
 export const InfoPanel: React.FC<InfoPanelProps> = ({ data }) => {
     return (
-        <div className="w-72 max-h-[80vh] overflow-y-auto bg-slate-900/40 backdrop-blur-md rounded-2xl border border-white/10 p-5 shadow-2xl text-white">
+        <div className="w-[calc(100vw-2rem)] sm:w-80 md:w-72 max-h-[70vh] md:max-h-[80vh] overflow-y-auto bg-slate-900/60 backdrop-blur-md rounded-2xl border border-white/10 p-5 shadow-2xl text-white">
             <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-bold text-white">{data.formula}</h2>
                 <span className="px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 text-[10px] font-mono border border-blue-500/30">
